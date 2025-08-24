@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Justin Bieber Fanpage</title>
+  <meta name="description" content="A modern, responsive Justin Bieber fanpage with gallery, timeline, discography, quiz, and dark mode." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Main">
+      <div class="logo" aria-label="Justin Bieber Fanpage">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Belieber Hub</span>
+      </div>
+      <nav class="navlinks">
+        <a href="#about">About</a>
+        <a href="#discography">Discography</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#media">Media</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#quiz">Quiz</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="container hero" aria-label="Hero">
+      <div class="hero-inner">
+        <h1>Justin Bieber</h1>
+        <p>Welcome to a fan-made celebration of Justin's music, milestones, and moments. Explore albums, watch performances, browse photos, and test your Belieber knowledge!
+        </p>
+        <div class="cta">
+          <a class="btn brand" href="#discography">Explore Discography</a>
+          <a class="btn" href="#quiz">Take the Fan Quiz</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container" aria-labelledby="about-title">
+      <div class="section-title">
+        <h2 id="about-title">About Justin</h2>
+        <p>Artist • Performer • Global Icon</p>
+      </div>
+      <div class="about">
+        <div class="about-card">
+          <p>
+            Justin Bieber is a Canadian singer and songwriter who rose to fame in his early teens and has since become one of the best-selling music artists of the 21st century. Known for hits like "Baby," "Sorry," and "Peaches," Justin has continuously evolved his sound—from teen pop to R&B and beyond—earning numerous awards and a dedicated global fanbase.
+          </p>
+          <ul>
+            <li><strong>Born:</strong> March 1, 1994 — London, Ontario, Canada</li>
+            <li><strong>Genres:</strong> Pop, R&B, Dance-pop</li>
+            <li><strong>Notable Albums:</strong> <em>My World 2.0</em>, <em>Purpose</em>, <em>Changes</em>, <em>Justice</em></li>
+          </ul>
+          <div class="cta">
+            <a class="btn" href="#timeline">See Career Timeline</a>
+            <button class="btn" id="likeBtn" aria-pressed="false">💖 <span id="likeCount">0</span> Likes</button>
+          </div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=80&w=1200&auto=format&fit=crop" alt="Concert crowd with lights up" />
+      </div>
+    </section>
+
+    <!-- DISCOGRAPHY -->
+    <section id="discography" class="container" aria-labelledby="discography-title">
+      <div class="section-title">
+        <h2 id="discography-title">Discography (Fan Highlights)</h2>
+        <p>Tap an album to preview a top track.</p>
+      </div>
+      <div class="grid" id="albumGrid" role="list">
+        <!-- Albums injected by JS for easier editing -->
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline" class="container" aria-labelledby="timeline-title">
+      <div class="section-title">
+        <h2 id="timeline-title">Career Timeline</h2>
+        <p>Some signature moments through the years.</p>
+      </div>
+      <div class="timeline" id="timelineList" role="list">
+        <!-- Timeline items injected by JS -->
+      </div>
+    </section>
+
+    <!-- MEDIA -->
+    <section id="media" class="container" aria-labelledby="media-title">
+      <div class="section-title">
+        <h2 id="media-title">Media</h2>
+        <p>Music video and live performance picks.</p>
+      </div>
+      <div class="media-embeds">
+        <!-- Official videos (YouTube embeds) -->
+        <iframe title="Justin Bieber - Sorry" src="https://www.youtube.com/embed/fRh_vgS2dFE" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <iframe title="Justin Bieber - Peaches (Live)" src="https://www.youtube.com/embed/tQ0yjYUFKAE" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="container" aria-labelledby="gallery-title">
+      <div class="section-title">
+        <h2 id="gallery-title">Photo Gallery</h2>
+        <p>Click a photo to enlarge.</p>
+      </div>
+      <div class="gallery" id="galleryGrid">
+        <!-- Images injected by JS -->
+      </div>
+      <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+        <img src="" alt="Expanded gallery image" />
+      </div>
+    </section>
+
+    <!-- QUIZ + NEWSLETTER -->
+    <section id="quiz" class="container split" aria-label="Fan Interactions">
+      <div class="quiz" aria-labelledby="quiz-title">
+        <h2 id="quiz-title">Quick Fan Quiz</h2>
+        <p class="muted">How well do you know Justin?</p>
+        <form id="quizForm">
+          <label>
+            1) What is Justin's birth year?
+            <input type="text" name="q1" inputmode="numeric" placeholder="e.g. 1994" required />
+          </label>
+          <label>
+            2) Which album features the hit "Sorry"?
+            <input type="text" name="q2" placeholder="Album name" required />
+          </label>
+          <label>
+            3) Complete the lyric: "Is it too late now to say ____?"
+            <input type="text" name="q3" placeholder="your word" required />
+          </label>
+          <button class="btn brand" type="submit">Check Score</button>
+          <p id="quizResult" aria-live="polite" style="margin:.5rem 0 0"></p>
+        </form>
+      </div>
+
+      <div class="newsletter" aria-labelledby="news-title">
+        <h2 id="news-title">Belieber Bulletin</h2>
+        <p>Get fan-made updates and playlists. (Demo form)</p>
+        <form id="newsForm" novalidate>
+          <label>
+            Email address
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <button class="btn" type="submit">Subscribe</button>
+          <p id="newsMsg" aria-live="polite" style="margin:.5rem 0 0"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container center">
+      <p>Fan project for educational/demonstration purposes. Not affiliated with Justin Bieber or his management.</p>
+      <p><a href="#top" id="toTop">Back to top ↑</a></p>
+    </div>
+  </footer>
+</body>
+</html>
